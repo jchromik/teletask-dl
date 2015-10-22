@@ -57,8 +57,11 @@ def get_child_urls(src):
     return child_urls
 
 def crawl_and_create_list(child_urls, location):
+    # if location specified: create file appropriately
+    # else: write to stdout
     if location != '':
         listfile = open(location, 'wb')
+    #crawl all child pages, find download link and write it
     for url in child_urls:
         child_content = urllib.urlopen(url).read()
         mo = re.search(
@@ -69,14 +72,18 @@ def crawl_and_create_list(child_urls, location):
                 print mo.group()
             else:
                 listfile.write(mo.group() + '\n')
+    # close file if any
     if location != '':
         listfile.close()
 
 def crawl_and_download(child_urls, location):
+    # create folder if
+    #  * folder is not current folder (working directory)
+    #  * folder does not yet exist
     if location not in ['', '.']:
         if not os.path.exists(location):
             os.makedirs(location)
-
+    # crawl all child pages, find download link and download podcast
     for url in child_urls:
         child_content = urllib.urlopen(url).read()
         mo = re.search(
