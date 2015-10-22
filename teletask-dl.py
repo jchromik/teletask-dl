@@ -112,10 +112,6 @@ def main():
     if (len(sys.argv) > 3 and location == ''):
         location = sys.argv[3]
 
-    print "DEBUG: url      = %s" % url
-    print "DEBUG: mode     = %s" % mode
-    print "DEBUG: location = %s" % location
-
     child_urls = get_child_urls(url)
 
     if mode == "C":
