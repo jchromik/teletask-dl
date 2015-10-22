@@ -25,3 +25,24 @@ A small python script that downloads all podcasts of a given lecture from tele-t
 
         If no LOCATION is given the link list will be written to stdout
         and podcasts will be stored in the current working directory.
+
+## Examples
+
+Create a list of all download links on stdout:
+
+    $ teletask-dl.py http://www.tele-task.de/archive/series/overview/1026/
+    $ teletask-dl.py http://www.tele-task.de/archive/series/overview/1026/ -C
+
+Create a list of all download links in linklist.txt:
+
+    $ teletask-dl.py http://www.tele-task.de/archive/series/overview/1026/ linklist.txt
+    $ teletask-dl.py http://www.tele-task.de/archive/series/overview/1026/ -C linklist.txt
+    
+Download all podcasts to the current directory:
+
+    $ teletask-dl.py http://www.tele-task.de/archive/series/overview/1026/ -D
+    $ teletask-dl.py http://www.tele-task.de/archive/series/overview/1026/ -D .
+    
+Download all podcats to "Downloads" directory:
+    
+    $ teletask-dl.py http://www.tele-task.de/archive/series/overview/1026/ -D Downloads
